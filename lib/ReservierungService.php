@@ -11,7 +11,12 @@
         }
 
         public function createReservierung($data) {
-            $reservierung = new Reservierung($data['modell'], $data['anzahl']);
+            $reservierung = new Reservierung(
+                $data['modell'], 
+                $data['anzahl'], 
+                $data['von'], 
+                $data['bis'],
+                $data['bemerkung']);
             array_push($this->reservierungen, $reservierung);
         }
 
@@ -21,6 +26,8 @@
                 $this->reservierungDao->create($reservierung);
             }
             $this->reservierungen = [];
+
+            return true;
         }
 
         public function getAllReservierungen(){

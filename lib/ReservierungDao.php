@@ -58,12 +58,15 @@
         }
 
         public function create($reservierung) {
-            $this->db->query("INSERT INTO reservierung(modell, anzahl)
-                                VALUES (:modell, :anzahl)");
+            $this->db->query("INSERT INTO reservierung(modell, anzahl, von, bis, bemerkung)
+                                VALUES (:modell, :anzahl, :von, :bis, :bemerkung)");
 
             $this->db->bind(':modell', $reservierung->getModell());
             $this->db->bind(':anzahl', $reservierung->getAnzahl());
-        
+            $this->db->bind(':von', $reservierung->getVon());
+            $this->db->bind(':bis', $reservierung->getBis());
+            $this->db->bind(':bemerkung', $reservierung->getBemerkung());
+
             if($this->db->execute()){
                 return true;
             } else {

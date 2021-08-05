@@ -31,13 +31,16 @@ Fonts
 }
 h1,
 h2,
+h3,
 p,
 a,
 thead,
 th,
 tr,
 th,
-td {
+td,
+label,
+input {
   font-family: "Roboto", sans-serif;
 }
 h1 {
@@ -45,6 +48,9 @@ h1 {
 }
 h2 {
   font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
 }
 p {
   font-size: 1rem;
@@ -64,6 +70,9 @@ Container
   display: grid;
   place-items: center;
   margin: 2rem;
+}
+.container-center > p {
+  margin: 1rem;
 }
 
 /*
@@ -109,6 +118,7 @@ buttons
   border-radius: 0.5rem;
   cursor: pointer;
   border: none;
+  font-weight: bold;
 }
 .btn-primary {
   background-color: var(--primaryDefault);
@@ -131,6 +141,19 @@ buttons
   transition: all 0.3s;
 }
 
+.btn-group {
+  display: flex;
+}
+.btn-group > Button {
+  margin: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .btn-big {
+    font-size: 0.7rem;
+  }
+}
+
 /*
 Tabelle
 */
@@ -144,15 +167,15 @@ Tabelle
 }
 
 .content-table thead tr {
-  background-color: var(--primaryDark);
-  color: var(--textLight);
+  background-color: var(--primaryDefault);
+  color: var(--textDark);
   text-align: left;
   font-weight: bold;
 }
 
 .content-table th,
 .content-table td {
-  padding: 1rem 1rem;
+  padding: 1rem;
 }
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
@@ -161,7 +184,7 @@ Tabelle
   background-color: #f3f3f3;
 }
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid var(--primaryDark);
+  border-bottom: 2px solid var(--primaryDefault);
 }
 .content-table td {
   text-align: center;
@@ -170,7 +193,7 @@ Tabelle
 /*
 responsive
 */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .content-table {
     font-size: 1rem;
   }
@@ -199,4 +222,55 @@ label
 }
 .offen {
   color: var(--primaryDefault);
+}
+
+/*
+Formular
+*/
+.content-form {
+  margin: 2.5rem 0;
+  font-size: 1.5rem;
+  min-width: 5rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+}
+.content-form > button {
+  display: flex;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  display: block;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-color: var(--primaryDefault);
+  border-width: 0.2rem;
+}
+.input:active,
+.input:focus {
+  border-color: var(--primaryDark);
+  outline: none;
+  transition: all 0.3s;
+}
+.text-label {
+  display: block;
+  margin: 0.5rem;
+}
+.couple {
+  margin: 1.5rem 0.5rem;
+}
+.couple > textarea {
+  width: 40rem;
+  height: 10rem;
+}
+@media (max-width: 700px) {
+  .couple > textarea {
+    width: 20rem;
+    height: 10rem;
+  }
 }
