@@ -2,88 +2,101 @@
 Variables
  */
 :root {
-    --primaryLight: #6EC5FF;
-    --primaryDefault: #2195F2;
-    --primaryDark: #0068BF;
+  --primaryLight: #6ec5ff;
+  --primaryDefault: #2195f2;
+  --primaryDark: #0068bf;
 
-    --secondaryLight: #FFC947;
-    --secondaryDefault: #FF9800;
-    --secondaryDark: #C66900;
+  --secondaryLight: #ffc947;
+  --secondaryDefault: #ff9800;
+  --secondaryDark: #c66900;
 
-    --warningDefault: #F44330;
-    --warningDark: #B90005;
+  --warningDefault: #f44330;
+  --warningDark: #b90005;
 
-    --successDefault: #4CAF50;
-    --successDark: #087F23;
+  --successDefault: #4caf50;
+  --successDark: #087f23;
 
-    --textLight: #EEEEEE;
-    --textDark: #212121;
-    --textWarning: #F44330;
-    --textSuccess: #4CAF50;
+  --textLight: #eeeeee;
+  --textDark: #212121;
+  --textWarning: #f44330;
+  --textSuccess: #4caf50;
 }
 
 /* 
 Fonts
 */
 @font-face {
-    font-family: "Yanone Kaffeesatz";
-    src: url("../fonts/Roboto-Regular.ttf");
+  font-family: "Yanone Kaffeesatz";
+  src: url("../fonts/Roboto-Regular.ttf");
 }
-h1, h2, p, a {
-    font-family: 'Roboto', sans-serif;
+h1,
+h2,
+p,
+a,
+thead,
+th,
+tr,
+th,
+td {
+  font-family: "Roboto", sans-serif;
 }
 h1 {
-    font-size:3rem;
+  font-size: 3rem;
 }
 h2 {
-    font-size:2rem;
+  font-size: 2rem;
 }
 p {
-    font-size:1rem;
+  font-size: 1rem;
 }
 a {
-    text-decoration: none;
-    font-size:1rem;
-    color: var(--textDark);
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--textDark);
 }
 /*
 Container
 */
 .container {
-    display: flex;
+  display: flex;
+}
+.container-center {
+  display: grid;
+  place-items: center;
+  margin: 2rem;
 }
 
 /*
 nav
 */
 .appbar {
-    box-shadow:0 0 25px rgba(0, 0, 0, 0.25);
-    position:fixed;
-    width: 100%;
-    background-color: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  width: 100%;
+  background-color: white;
 }
 .flex-nav {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .nav {
-    padding-right: 1rem;
+  padding-right: 1rem;
 }
 
 /*
 main
 */
 .main {
-    padding-top: 6rem;
+  padding-top: 6rem;
 }
 
 /*
 media
 */
 .logo {
-    width: 5rem;
-    padding: 0.5rem 0.5rem;
+  width: 5rem;
+  padding: 0.5rem 0.5rem;
 }
 
 /*
@@ -91,28 +104,99 @@ buttons
 */
 /*primary*/
 .btn-big {
-    margin: 0.4rem;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    cursor:pointer;
+  margin: 0.4rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
 }
 .btn-primary {
-    background-color: var(--primaryDefault);
-    transition: all 0.3s;
+  background-color: var(--primaryDefault);
+  transition: all 0.3s;
 }
 .btn-primary:hover {
-    background-color: var(--primaryDark);
-    color: var(--textLight);
-    transition: all 0.3s;
+  background-color: var(--primaryDark);
+  color: var(--textLight);
+  transition: all 0.3s;
 }
 
 /*secondary*/
 .btn-secondary {
-    background-color: var(--secondaryDefault);
-    transition: all 0.3s;
+  background-color: var(--secondaryDefault);
+  transition: all 0.3s;
 }
 .btn-secondary:hover {
-    background-color: var(--secondaryDark);
-    color: var(--textLight);
-    transition: all 0.3s;
+  background-color: var(--secondaryDark);
+  color: var(--textLight);
+  transition: all 0.3s;
+}
+
+/*
+Tabelle
+*/
+.content-table {
+  margin: 2.5rem 0;
+  font-size: 1.5rem;
+  min-width: 5rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: var(--primaryDark);
+  color: var(--textLight);
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 1rem 1rem;
+}
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid var(--primaryDark);
+}
+.content-table td {
+  text-align: center;
+}
+
+/*
+responsive
+*/
+@media (max-width: 600px) {
+  .content-table {
+    font-size: 1rem;
+  }
+  .container-center > h1 {
+    font-size: 2rem;
+  }
+}
+
+/*
+label
+*/
+.label {
+  background-color: white;
+  text-align: center;
+  border-style: solid;
+  border-width: 0.2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.genehmigt {
+  color: var(--successDefault);
+}
+.abgelehnt {
+  color: var(--warningDefault);
+}
+.offen {
+  color: var(--primaryDefault);
 }

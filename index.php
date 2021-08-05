@@ -1,11 +1,11 @@
 <?php include_once 'config/init.php'; ?>
 
 <?php
-$reservierung = new Reservierung;
+$reservierungService = new ReservierungService;
 
-$template = new Template('templates/frontpage.php');
+$template = new Template('templates/indexView.php');
 
 $template->title = 'Latest Jobs';
-$template->reservierungen = $reservierung->getAllReservierung();
+$template->reservierungen = $reservierungService->getAllReservierungen();
 
 echo $template;

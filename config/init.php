@@ -10,5 +10,5 @@ require_once 'helpers/systemHelper.php';
 
 //Autoloader
 spl_autoload_register(function ($class_name) {
-    require_once 'lib/'.$class_name. '.php';
+    require_once 'lib/'.$class_name.'.php';
 });
