@@ -7,6 +7,7 @@
     <title>Buchungssystem</title>
     <link rel="stylesheet" href="css/reset.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/styles.css?v=<?php echo time(); ?>">
+
 </head>
 <body>
     <div class="container">

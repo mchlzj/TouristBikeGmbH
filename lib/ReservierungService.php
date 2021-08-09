@@ -2,17 +2,19 @@
     class ReservierungService{
         private $db;
         private $reservierungDao;
+        private $modellDao;
         private $reservierungen;
         
         public function __construct(){
             $this->db = new Database;
             $this->reservierungDao = new ReservierungDao;
+            $this->modellDao = new ModellDao;
             $this->reservierungen = [];
         }
 
         public function createReservierung($data) {
             $reservierung = new Reservierung(
-                $data['modell'], 
+                $data['modellId'], 
                 $data['anzahl'], 
                 $data['von'], 
                 $data['bis'],
@@ -32,6 +34,18 @@
 
         public function getAllReservierungen(){
             return $this->reservierungDao->getAllReservierungen();
+        }
+
+        public function getReservierungById($id) {
+            return $this->reservierungDao->getReservierungById($id);
+        }
+
+        public function getAllModelle(){
+            return $this->modellDao->getAllModelle();
+        }
+        
+        public function getModellById($modellId) {
+            return $this->modellDao->getModellById($modellId);
         }
     }
 ?>

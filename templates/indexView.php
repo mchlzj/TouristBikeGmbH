@@ -34,7 +34,7 @@
                                         echo 'offen';
                                         break;
                                 }?>">
-                                    <?php echo $reservierung->bezeichnung;?>
+                                    <?php echo $reservierung->reservierungstatus;?>
                                 </div>
                         </td>
                         <td>

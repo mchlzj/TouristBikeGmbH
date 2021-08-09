@@ -14,10 +14,11 @@
             //                     ON reservierung.fahrradId = fahrrad.id
             //                     INNER JOIN fahrradtyp
             //                     ON fahrrad.fahrradtypId = fahrradtyp.id");
-                $this->db->query("SELECT reservierung.*, reservierungstatus.bezeichnung
+                $this->db->query("SELECT reservierung.*, reservierungstatus.bezeichnung AS reservierungstatus
                                     FROM reservierung 
                                     INNER JOIN reservierungstatus 
-                                    ON reservierung.statusId = reservierungstatus.id");
+                                    ON reservierung.statusId = reservierungstatus.id
+                                    ORDER BY reservierung.erstelldatum DESC");
                                     
             $results = $this->db->resultSet();
 
@@ -44,10 +45,12 @@
             //                     ON fahrrad.fahrradtypId = fahrradtyp.id
             //                     WHERE reservierung.id = :reservierung_id");
 
-            $this->db->query("SELECT reservierung.*, reservierungstatus.bezeichnung
+            $this->db->query("SELECT reservierung.*, reservierungstatus.bezeichnung AS reservierungstatus, modell.bezeichnung AS modell
             FROM reservierung 
             INNER JOIN reservierungstatus 
             ON reservierung.statusId = reservierungstatus.id 
+            INNER JOIN  modell
+            ON reservierung.modellId = modell.id
             WHERE reservierung.id = :reservierung_id");
 
             $this->db->bind(':reservierung_id', $reservierungId);
@@ -58,10 +61,10 @@
         }
 
         public function create($reservierung) {
-            $this->db->query("INSERT INTO reservierung(modell, anzahl, von, bis, bemerkung)
-                                VALUES (:modell, :anzahl, :von, :bis, :bemerkung)");
+            $this->db->query("INSERT INTO reservierung(modellId, anzahl, von, bis, bemerkung)
+                                VALUES (:modellId, :anzahl, :von, :bis, :bemerkung)");
 
-            $this->db->bind(':modell', $reservierung->getModell());
+            $this->db->bind(':modellId', $reservierung->getModellId());
             $this->db->bind(':anzahl', $reservierung->getAnzahl());
             $this->db->bind(':von', $reservierung->getVon());
             $this->db->bind(':bis', $reservierung->getBis());

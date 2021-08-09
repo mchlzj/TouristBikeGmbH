@@ -3,12 +3,12 @@
         // private $erstelldatum;
         private $von;
         private $bis;
-        private $modell;
+        private $modellId;
         private $anzahl;
         // private $status;
         private $bemerkung;
 
-        public function __construct($modell, $anzahl,
+        public function __construct($modellId, $anzahl,
         // $erstelldatum, 
         $von, $bis, 
         // $status, 
@@ -17,13 +17,13 @@
             $this->von = $von;
             $this->bis = $bis;
             // $this->status = $status;
-            $this->modell = $modell;
+            $this->modellId = $modellId;
             $this->anzahl = $anzahl;
             $this->bemerkung = $bemerkung;
           }
         
-        public function getModell(){
-            return $this->modell;
+        public function getModellId(){
+            return $this->modellId;
         }
 
         public function getAnzahl(){
@@ -50,8 +50,8 @@
             return $this->bemerkung;
         }
 
-        public function setModell($modell) {
-            $this->modell = $modell;
+        public function setModell($modellId) {
+            $this->modell = $modellId;
         }
 
         public function setAnzahl($anzahl){

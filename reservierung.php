@@ -1,7 +1,7 @@
 <?php include_once 'config/init.php'; ?>
 
 <?php
-$reservierung = new ReservierungDao;
+$reservierung = new ReservierungService;
 
 $template = new Template('templates/reservierung-einzeln.php');
 

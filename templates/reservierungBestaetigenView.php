@@ -10,7 +10,7 @@
             </div>
             <div class="couple">
                 <p class="text-label">Modell:</p>
-                <h3 class="text-label"><?php echo $_SESSION['modell'];?></h3>
+                <h3 class="text-label"><?php echo $modell->bezeichnung;?></h3>
             </div>
             <div class="couple">
                 <p class="text-label">Von:</p>
