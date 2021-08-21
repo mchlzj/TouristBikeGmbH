@@ -5,7 +5,6 @@
     <div class="container-center">
         <h1>Meine Reservierungen</h1>
         <table class="content-table">
-
             <thead>
                 <tr>
                     <th>Erstellt am</th>
