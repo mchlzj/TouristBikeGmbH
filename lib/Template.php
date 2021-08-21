@@ -1,10 +1,9 @@
 <?php class Template {
     //Template Pfad
     protected $template;
-    // Variablen kommen in ein Array
+
     protected $vars = array();
 
-    //Constructor
     public function __construct($template){
         $this->template = $template;
     }

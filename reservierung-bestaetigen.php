@@ -5,7 +5,6 @@
 $template = new Template('templates/reservierungBestaetigenView.php');
 $reservierungService = new ReservierungService;
 $template->modell = $reservierungService -> getModellById($_SESSION['modellId']);
-// print_r($_SESSION);
 
 if(isset($_POST['submit'])){
     $data = array();
@@ -23,11 +22,7 @@ if(isset($_POST['submit'])){
     } else {
         redirect('index.php', 'Ups, da ist was schif gelaufen', 'error');
     }
-// }
 }
-
-
-
 
 echo $template;
 ?>

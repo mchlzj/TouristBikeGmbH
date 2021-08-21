@@ -6,6 +6,13 @@ $template = new Template('templates/reservierungErstellenView.php');
 $template->modelle = $reservierungService -> getAllModelle();
 $template->fehlermeldung = '';
 
+/*
+Serverseitige Validierung
+
+-------ACHTUNG-------
+Client und Server seitige Validierung müssen unbedingt immer auf beiden Seiten angepasst werden!
+
+*/
 function validateAnzahl() {
     if(is_numeric($_POST['anzahl']) && $_POST['anzahl'] < 50) {
         return true;
@@ -13,6 +20,7 @@ function validateAnzahl() {
         return false;
     }
 }
+
 function validateVon() {
     if($_POST['von'] > date('Y-m-d', strtotime("+1 day"))) {
         return true;
@@ -20,6 +28,7 @@ function validateVon() {
         return false;
     }
 }
+
 function validateBis() {
     if($_POST['bis'] > $_POST['von']) {
         return true;
@@ -27,11 +36,13 @@ function validateBis() {
         return false;
     }
 }
+
 function validateModelle() {
     if($_POST['modellId'] < 4) {
         return true;
     }
 }
+
 function validateBemerkung() {
     if(strlen($_POST['bemerkung'] < 500)) {
         return true;
@@ -39,7 +50,7 @@ function validateBemerkung() {
         return false;
     }
 }
-
+//Funktion für die Ausführung sämtlicher Validierungen
 function validateAll() {
     if(validateVon() &&
         validateBis() &&
@@ -64,19 +75,16 @@ if(isset($_POST['weiter'])){
         $_SESSION['bis'] = $_POST['bis'];
         $_SESSION['bemerkung'] = $_POST['bemerkung'];
         $_SESSION['modellId'] = $_POST['modellId'];
-        // $_SESSION['modell'] = $reservierungService->getModellById($POST['modellId']);
 
+    //Validierung vor Weiterleitung ausführen.
     if(validateAll()) {
-            // redirect('reservierung-bestaetigen.php', 'Reservierung erfoglreich!', 'success');
             header("Location: reservierung-bestaetigen.php");
         } else {
             header("Location: reservierung-erstellen.php");
+            //Serverseitig generierter Warnhinweis, der sich auf die Client-seitig erstellten Warnhinweise bezieht.
             $template->fehlermeldung = 'Bitte beachten Sie die Warnhinweise unter den Eingabefeldern';            
         }
     }
-
-    
-
 
 echo $template;
 ?>

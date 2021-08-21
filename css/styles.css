@@ -191,6 +191,26 @@ Tabelle
   text-align: center;
 }
 
+th {
+  cursor: pointer;
+}
+
+th.th-sort-asc::after {
+  content: "\25b4";
+}
+th.th-sort-desc::after {
+  content: "\25be";
+}
+th.th-sort-asc::after,
+th.th-sort-desc::after {
+  margin-left: 5px;
+}
+th.th-sort-asc,
+th.th-sort-desc {
+  background-color: var(--primaryDark);
+  color: var(--textLight);
+}
+
 /*
 responsive
 */

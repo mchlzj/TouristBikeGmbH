@@ -38,7 +38,7 @@
                                 </div>
                         </td>
                         <td>
-                            <a href="reservierung.php?id=<?php echo $reservierung->id;?>">
+                            <a href="reservierung-details.php?id=<?php echo $reservierung->id;?>">
                                 <Button class="btn-big btn-primary">
                                     <?php echo $reservierung->id;?>
                                 </Button>

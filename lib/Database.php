@@ -10,16 +10,16 @@ class Database{
     private $stmt;
 
     public function __construct(){
-        //Set DSM
+        //DSN
         $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbname;
 
-        //Set Options
+        //Optionen
         $options = array(
             PDO::ATTR_PERSISTENT => true,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
 
-        //PDO Instance
+        //PDO Instanz
         try{
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
         } catch(PDOException $e){
@@ -54,11 +54,13 @@ class Database{
         return $this->stmt->execute();
     }
 
+    //resultSet für Abfragen die mehrere Zeilen zurückgeben
     public function resultSet(){
         $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    //Single für Abfragen, die nur eine einzelne Zeile zurückgeben
     public function single(){
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_OBJ);

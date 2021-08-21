@@ -1,5 +1,5 @@
 
-
+//Konstanten für die zu validierenden Felder
 let anzahlField = document.querySelector("#anzahl");
 let anzahlError = document.querySelector('#error-anzahl');
 
@@ -30,7 +30,6 @@ anzahlField.addEventListener('focusin', (e) => {
 })
 
 // Von
-
 const vonValidieren = () => {
     let von = new Date(vonField.value).getDate();
     let tomorrow = new Date().getDate() + 2;
@@ -65,6 +64,7 @@ bemerkungField.addEventListener('focusin', (e) => {
     bisError.innerText = '';
 })
 
+//Initiale Validierung beim Laden der Seite, damit die Inhalte aus den Session Variablen gleich validiert werden.
 const alleValidieren = () => {
     anzahlValidieren();
     vonValidieren();

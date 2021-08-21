@@ -1,8 +1,8 @@
 <?php include 'include/header.php';?>
 <div class="main">
     <div class="container-center">
-        <h1>Reservierung erstellen</h1>
-
+        <h1>Neue Reservierung</h1>
+        <p>Schritt 1 von 2</p>
         <form id="reservierung-erstellen-formular" class="content-form" method="post" action="reservierung-erstellen.php">
             <div class="couple">
                 <label class="text-label">Anzahl</label>

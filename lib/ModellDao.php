@@ -6,13 +6,10 @@
             $this->db = new Database;
         }
 
-        // Get all Reservierungen
         public function getAllModelle(){
-
                 $this->db->query("SELECT * FROM modell");
                                     
             $results = $this->db->resultSet();
-
             return $results;
         }
 
@@ -24,7 +21,6 @@
             $this->db->bind(':modell_id', $modellId);
 
             $row = $this->db->single();
-
             return $row;
         }
     }
