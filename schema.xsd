@@ -1,0 +1,43 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="reservierung">
+    <xs:complexType>
+      <xs:sequence>
+          <xs:element name="anzahl">
+           <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="50"/>
+              </xs:restriction>
+          </xs:simpleType>
+         </xs:element>
+        <xs:element name="modell">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Rennrad"/>
+              <xs:enumeration value="Mountainbike"/>
+              <xs:enumeration value="Citybike"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="von" type="xs:date" />
+        <xs:element name="bis" type="xs:date" />
+        <xs:element name="status">
+        	<xs:simpleType>
+            	<xs:restriction base="xs:string">
+              		<xs:enumeration value="genehmigt"/>
+              		<xs:enumeration value="abgelehnt"/>
+              		<xs:enumeration value="offen"/>
+            	</xs:restriction>
+          	</xs:simpleType>
+        </xs:element>
+        <xs:element name="bemerkung">
+          <xs:simpleType>
+    		<xs:restriction base="xs:string">
+      			<xs:maxLength value="500"/>
+          </xs:restriction>
+ 		</xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

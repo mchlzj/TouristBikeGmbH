@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding ="UTF-8"?>
+<reservierung 
+    xsi:noNamespaceSchemaLocation="http://www.eBike-Gmbh.de/Buchungssystem/reservierungSchema.xsd" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <anzahl>50</anzahl>
+   <modell>Rennrad</modell>
+   <von>2021-08-06</von>
+   <bis>2021-08-07</bis>
+   <status>offen</status>
+   <bemerkung>Dies ist ein Test</bemerkung>
+</reservierung>
+
+
+
+

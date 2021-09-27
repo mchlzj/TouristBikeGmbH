@@ -24,5 +24,9 @@ if(isset($_POST['submit'])){
     }
 }
 
+if(isset($_POST['zurueck'])){
+        redirect('reservierung-erstellen.php', 'Prüfung der Eingaben', 'success');
+}
+
 echo $template;
 ?>

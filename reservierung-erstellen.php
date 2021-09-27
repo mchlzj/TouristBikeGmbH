@@ -1,6 +1,7 @@
 <?php include_once 'config/init.php'; ?>
 
 <?php
+
 $reservierungService = new ReservierungService;
 $template = new Template('templates/reservierungErstellenView.php');
 $template->modelle = $reservierungService -> getAllModelle();
@@ -8,10 +9,8 @@ $template->fehlermeldung = '';
 
 /*
 Serverseitige Validierung
-
 -------ACHTUNG-------
 Client und Server seitige Validierung müssen unbedingt immer auf beiden Seiten angepasst werden!
-
 */
 function validateAnzahl() {
     if(is_numeric($_POST['anzahl']) && $_POST['anzahl'] < 50) {
@@ -22,7 +21,7 @@ function validateAnzahl() {
 }
 
 function validateVon() {
-    if($_POST['von'] > date('Y-m-d', strtotime("+1 day"))) {
+    if($_POST['von'] >= date('Y-m-d', strtotime("+1 day"))) {
         return true;
     } else {
         return false;
@@ -50,6 +49,7 @@ function validateBemerkung() {
         return false;
     }
 }
+
 //Funktion für die Ausführung sämtlicher Validierungen
 function validateAll() {
     if(validateVon() &&

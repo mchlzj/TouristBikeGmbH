@@ -20,7 +20,6 @@ let weiter = document.querySelector('#weiter');
 // Anzahl
 const anzahlValidieren = () => {
     let anzahl = parseInt(anzahlField.value, 10);
-    console.log(anzahl);
     isNaN(anzahl)|| anzahl > 50 ? anzahlError.innerText = 'Bitte geben Sie eine Zahl von 1 bis 50 ein': '';
 }
 
@@ -31,10 +30,13 @@ anzahlField.addEventListener('focusin', (e) => {
 
 // Von
 const vonValidieren = () => {
-    let von = new Date(vonField.value).getDate();
-    let tomorrow = new Date().getDate() + 2;
-    console.log(von);
-    console.log(tomorrow);
+    let von = new Date(vonField.value);
+    let today = new Date();
+    let tomorrow = new Date();
+
+    von.setHours(today.getHours()+1);
+    tomorrow.setDate(today.getDate() + 1);
+
     von < tomorrow ? vonError.innerText = 'Wert muss mindestens einen Tag nach heutigem Datum liegen': '';
 }
 vonField.addEventListener('focusout', vonValidieren);
@@ -45,9 +47,9 @@ vonField.addEventListener('focusin', (e) => {
 
 // Bis
 const bisValidieren = () => {
-    let von = new Date(document.querySelector('#von').value).getDate();
-    let bis = new Date(bisField.value).getDate();
-    bis < von + 1 ? bisError.innerText = 'Der Wert muss mindestens einen Tag nach dem Leihbeginn liegen': '';
+    let von = new Date(document.querySelector('#von').value);
+    let bis = new Date(bisField.value);
+    bis <= von ? bisError.innerText = 'Der Wert muss mindestens einen Tag nach dem Leihbeginn liegen': '';
 }
 bisField.addEventListener('focusout', bisValidieren);
 bisField.addEventListener('focusin', (e) => {
@@ -74,8 +76,7 @@ const alleValidieren = () => {
 
 window.onload = alleValidieren;
 
-
-
+console.log(bisField.value);
 
 
 

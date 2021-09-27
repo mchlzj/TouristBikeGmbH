@@ -8,8 +8,28 @@ function sortTable(table, column, asc = true) {
     const sortedRows = rows.sort((a,b) => {
         const aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
         const bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+
+        aColasArr = aColText.split("."); 
+        aColasDate = new Date(aColasArr[1] + "." + aColasArr[0] + "." + aColasArr[2]).getTime();  
+        bColasArr = bColText.split("."); 
+        bColasDate = new Date(bColasArr[1] + "." + bColasArr[0] + "." + bColasArr[2]).getTime();     
         
-        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
+        const cellType = document.querySelectorAll('th')[column].id;
+
+        if( cellType == 'date') {
+            if(aColasDate > bColasDate) {
+                return (1 * dirModifier);
+            } else {
+                return (-1 * dirModifier);
+            }
+        } else {
+            if(aColText > bColText) {
+                return (1 * dirModifier);
+
+            } else {
+                return (-1 * dirModifier);
+            }
+        }
     });
 
     //Entfernen der aktuellen Zeilen

@@ -50,12 +50,9 @@
             </div>
             <p id="error-bemerkung" class="error-message"></p>
             <div class="btn-group">
-                <Button class="btn-big btn-secondary" id="zurueck"  value="Zurueck" name="zurueck" onclick="history.back()">Zurück</Button>
                 <Button class="btn-big btn-primary" id="weiter" type="submit" value="Weiter" name="weiter">Weiter</Button>
             </div>
-            <p class="error-message"><?php echo $fehlermeldung; ?></p>
-            
-            
+            <p class="error-message"><?php echo $fehlermeldung; ?></p> 
     </div>  
 </div>
 <?php include 'include/footer.php';?>

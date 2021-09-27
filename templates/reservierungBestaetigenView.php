@@ -25,7 +25,7 @@
                 <h3 class="text-label"><?php echo $_SESSION['bemerkung'];?></h3>
             </div>
             <div class="btn-group">
-                <Button class="btn-big btn-secondary"  value="Zurueck" name="zurueck" onclick="history.back()">Zurück</Button>
+                <Button class="btn-big btn-secondary"  type="submit" value="zurueck" name="zurueck">Zurück</Button>
                <Button class="btn-big btn-primary" type="submit" value="Submit" name="submit">Fertig</Button>               
             </div>
     </div>  
